@@ -1,7 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { OmitType, PartialType } from '@nestjs/swagger';
 import { Document } from 'mongoose';
 
 export type InventoryDocument = Inventory & Document;
+
+// for type readability
+export type InventoryOid = string;
 
 @Schema()
 export class Inventory {
@@ -18,10 +22,18 @@ export class Inventory {
   description: string;
 
   @Prop({ required: true, min: 1 })
-  quantity: number;
+  quantity: number = 1;
 
   @Prop([{ type: String, trim: true, maxlength: 120, lowercase: true }])
-  tags: string[];
+  tags: string[] = [];
 }
 
 export const InventorySchema = SchemaFactory.createForClass(Inventory);
+
+/**
+ * DTO classes used for swagger; favored over TypeScript types/interfaces
+ * 
+ * @see https://docs.nestjs.com/openapi
+ */
+export class CreateInventoryDto extends OmitType(Inventory, ['quantity'] as const) {}
+export class UpdateInventoryDto extends PartialType(Inventory) {}

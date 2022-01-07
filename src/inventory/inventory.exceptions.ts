@@ -6,6 +6,7 @@ import {
   HttpStatus,
   NotFoundException,
 } from '@nestjs/common';
+import { generateExceptionSchema } from '../utils';
 
 /**
  * Used in the following cases:
@@ -19,6 +20,12 @@ export class ItemNotFoundException extends NotFoundException {
   constructor(itemId: string) {
     super(`Item with id='${itemId}' was not found.`);
   }
+
+  static schema = generateExceptionSchema(
+    HttpStatus.NOT_FOUND,
+    'The item was not found.',
+    'Either the id was invalid, or the item with said id was not found.'
+  );
 }
 
 export class InputValidationException extends BadRequestException {
@@ -34,4 +41,12 @@ export class InputValidationException extends BadRequestException {
       error: Object.values(errors).map(({ message }) => message),
     });
   }
+
+  static schema = generateExceptionSchema(
+    HttpStatus.BAD_REQUEST,
+    'Input validation error.',
+    [
+      'An array of properties that were invalidated by the schema, including its reason',
+    ]
+  );
 }
