@@ -1,15 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Inventory, InventorySchema } from './inventory.schema';
+import { MongooseModule } from '@nestjs/mongoose';
+import { AppController } from './app.controller';
+import { InventoryModule } from './inventory/inventory.module';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([
-      { name: Inventory.name, schema: InventorySchema },
-    ]),
     MongooseModule.forRootAsync({
       imports: [ConfigModule.forRoot({ envFilePath: `.env` })],
       useFactory: async (configService: ConfigService) => ({
@@ -17,8 +13,9 @@ import { Inventory, InventorySchema } from './inventory.schema';
       }),
       inject: [ConfigService],
     }),
+    InventoryModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}

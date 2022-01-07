@@ -1,5 +1,5 @@
 /**
- * Custom HTTP Exception classes
+ * Custom HTTP Exception classes for /inventory
  */
 import {
   BadRequestException,
@@ -7,6 +7,11 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
+/**
+ * Used in the following cases:
+ *  - Invalid ObjectId
+ *  - Valid ObjectId, Item not found
+ */
 export class ItemNotFoundException extends NotFoundException {
   /**
    * @param itemId MongoDB Document id

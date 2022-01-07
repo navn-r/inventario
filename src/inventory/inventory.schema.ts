@@ -20,7 +20,7 @@ export class Inventory {
   @Prop({ required: true, min: 1 })
   quantity: number;
 
-  @Prop([{ type: String, trim: true, maxlength: 120 }])
+  @Prop([{ type: String, trim: true, maxlength: 120, lowercase: true }])
   tags: string[];
 }
 

@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import { Inventory, InventoryDocument } from './inventory.schema';
 
 @Injectable()
-export class AppService {
+export class InventoryService {
   constructor(
     @InjectModel(Inventory.name)
     private model: Model<InventoryDocument>
