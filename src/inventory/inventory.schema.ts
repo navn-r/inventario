@@ -7,7 +7,7 @@ export type InventoryDocument = Inventory & Document;
 // for type readability
 export type InventoryOid = string;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Inventory {
   @Prop({ required: true, trim: true, maxlength: 120 })
   name: string;
@@ -32,8 +32,10 @@ export const InventorySchema = SchemaFactory.createForClass(Inventory);
 
 /**
  * DTO classes used for swagger; favored over TypeScript types/interfaces
- * 
+ *
  * @see https://docs.nestjs.com/openapi
  */
-export class CreateInventoryDto extends OmitType(Inventory, ['quantity'] as const) {}
+export class CreateInventoryDto extends OmitType(Inventory, [
+  'quantity',
+] as const) {}
 export class UpdateInventoryDto extends PartialType(Inventory) {}
