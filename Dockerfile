@@ -21,6 +21,6 @@ COPY --from=builder /usr/src/app/pnpm-lock.yaml /usr/src/app/
 COPY --from=builder /usr/src/app/node_modules /usr/src/app/node_modules
 COPY --from=builder /usr/src/app/dist /usr/src/app/dist
 
-EXPOSE 3000
+EXPOSE $PORT
 
 CMD [ "node", "dist/main.js" ]
