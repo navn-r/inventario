@@ -7,12 +7,15 @@ import {
   Param,
   Post,
   Put,
+  Res,
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiNotFoundResponse,
+  ApiOkResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { Response } from 'express';
 import {
   InputValidationException,
   ItemNotFoundException,
@@ -38,6 +41,29 @@ export class InventoryController {
   @Get()
   public getAllItems(): Promise<Inventory[]> {
     return this.service.getAllItems();
+  }
+
+  /**
+   * Exports a list of inventory items into a CSV file.
+   *
+   * @feature                "Push a button export product data to a CSV"
+   * @param   {Response} res Express response object, for writing the file
+   * @returns {File}         A downloadable CSV file to the client
+   */
+  @Get('/export')
+  @ApiOkResponse({
+    description:
+      'A downloadable CSV file is returned with filename `export-{ISO Date}.csv`',
+  })
+  public async exportItems(@Res() res: Response): Promise<void> {
+    const file = await this.service.exportItems();
+
+    // Assumption: the time from fetching the list of items
+    //             and the time to respond to the client
+    //             is considered to be close if not identical
+    res.setHeader("'Content-Type'", "'text/csv'");
+    res.attachment(`export-${new Date().toISOString()}.csv`);
+    res.send(file);
   }
 
   /**

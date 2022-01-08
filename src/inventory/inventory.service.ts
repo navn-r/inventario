@@ -34,4 +34,32 @@ export class InventoryService {
       .findByIdAndUpdate(itemId, update, { new: true, runValidators: true })
       .exec();
   }
+
+  public async exportItems(delimiter = ','): Promise<string> {
+    const props = [
+      '_id',
+      // Avoids hard-coding item props (keeps schema as the only source of truth)
+      ...Object.getOwnPropertyNames(new Inventory()).sort(),
+    ];
+
+    const items = (await this.getAllItems()).map((item) => {
+      const values = props.map((prop) => {
+        let value = item[prop];
+
+        // Required when dealing with array props
+        //    i.e. tags: ['tag1', 'tag2'] => "tag1&tag2"
+        if (typeof value === 'object') {
+          value = value.toString().replaceAll(delimiter, '&');
+        }
+
+        return value;
+      });
+
+      return values.join(delimiter);
+    });
+
+    // CLRF Delimiter favored over LF ('\n') for CSVs
+    // @see https://csvlint.io/
+    return props.join(delimiter) + '\r\n' + items.join('\r\n');
+  }
 }
