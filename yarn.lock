@@ -1304,6 +1304,13 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
+"@nestjs/axios@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/axios/-/axios-0.0.4.tgz#cc90672e8d808df0638635d7fc41b88625858c98"
+  integrity sha512-EXbidAhJYaDjEA+6N0SkERjHpjsh8cfeBuFmxaG5hjzUTDrGj3FVE/0cBxV0Nfa2I1qki6QzqGHmnx9mN3JONw==
+  dependencies:
+    axios "0.24.0"
+
 "@nestjs/cli@^8.0.0":
   version "8.1.6"
   resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-8.1.6.tgz#e624cb292f7758437efd9460ffb3f5c43f776f68"
@@ -6670,7 +6677,7 @@ loglevel@^1.6.8:
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.8.0.tgz#e7ec73a57e1e7b419cb6c6ac06bf050b67356114"
   integrity sha512-G6A/nJLRgWOuuwdNuA6koovfEV1YpqqAG4pRUlFaz3jj2QNZ8M4vBqnVA+HBTmU/AMNUtlOsMmSpF6NyOjztbA==
 
-loose-envify@^1.1.0:
+loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -8154,6 +8161,15 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
+prop-types@^15.7.1:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 proxy-addr@~2.0.5, proxy-addr@~2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.7.tgz#f19fe69ceab311eeb94b42e70e8c2070f9ba1025"
@@ -8314,6 +8330,14 @@ raw-body@2.4.2:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-contenteditable@^3.3.6:
+  version "3.3.6"
+  resolved "https://registry.yarnpkg.com/react-contenteditable/-/react-contenteditable-3.3.6.tgz#4dac0eeaff268ca1614b52d4290d7b21f3bfb997"
+  integrity sha512-61+Anbmzggel1sP7nwvxq3d2woD3duR5R89RoLGqKan1A+nruFIcmLjw2F+qqk70AyABls0BDKzE1vqS1UIF1g==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    prop-types "^15.7.1"
+
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
@@ -8322,6 +8346,11 @@ react-dom@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-is@^16.13.1:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-is@^17.0.1:
   version "17.0.2"

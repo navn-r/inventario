@@ -1,3 +1,4 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -14,6 +15,7 @@ import { InventoryModule } from './inventory/inventory.module';
       inject: [ConfigService],
     }),
     InventoryModule,
+    HttpModule,
   ],
   controllers: [AppController],
   providers: [],

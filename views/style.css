@@ -1,0 +1,222 @@
+@import url('https://navn.me/assets/index.f86ed1ef.css');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'SF Pro Display';
+  cursor: auto;
+}
+
+:root {
+  --green: rgb(150, 191, 72);
+  --dark-green: #80a23d;
+  --black: #131516;
+  --gray: #4e5050;
+  --red: #a94442;
+  --white: #f8f8ff;
+  --blue: #0c5460;
+}
+
+html,
+body,
+#react-ssr-root {
+  height: 100%;
+}
+
+html {
+  background-color: var(--white);
+}
+
+#react-ssr-root {
+  display: grid;
+  color: var(--black);
+  grid-template-columns: 250px auto;
+}
+
+button,
+.button {
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+code,
+pre {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Menu Styling */
+
+nav {
+  background-color: var(--black);
+  height: 100%;
+  color: white;
+  padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-rows: repeat(5, max-content) auto max-content;
+}
+
+nav h1 {
+  font-family: 'Apple Garamond';
+  font-size: 2.25rem;
+  text-align: center;
+}
+
+nav p {
+  font-size: 1rem;
+  color: var(--green);
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+nav div {
+  height: 1px;
+  background: var(--white);
+  filter: opacity(0.25);
+  margin: 1.5rem 0 1rem;
+}
+
+nav a {
+  cursor: pointer;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+nav a:last-child {
+  grid-row: 7;
+  text-align: center;
+}
+
+nav a:hover {
+  color: var(--green);
+}
+
+/* Main Body Styling */
+
+main {
+  padding: 1.5rem;
+}
+
+/* bootstrap .alert-warning */
+main .alert {
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: auto 5rem;
+}
+
+.alert p {
+  padding: 15px;
+}
+
+.alert button {
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  right: 0;
+  font-size: 1.5rem;
+}
+
+.danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+}
+
+.danger button {
+  color: var(--red);
+}
+
+.info {
+  color: var(--blue);
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+}
+
+.info button {
+  color: var(--blue);
+}
+
+main header {
+  display: grid;
+  grid-template-columns: auto repeat(3, 7.5rem);
+  column-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+header h5 {
+  font-size: 1rem;
+  filter: opacity(0.5);
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+header button,
+header .button {
+  background-color: var(--green);
+  color: var(--white);
+  width: 7.5rem;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+header button.refresh {
+  background-color: var(--blue);
+}
+
+header button.abort {
+  background-color: red;
+}
+
+header button:hover,
+header .button:hover {
+  background-color: var(--dark-green);
+}
+
+header button.abort:hover {
+  background-color: var(--red);
+}
+
+header button.refresh:hover {
+  background-color: #07323A;
+}
+
+/* Table Styles */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  padding: 1rem;
+}
+
+table thead th {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+table tbody td {
+  color: var(--gray);
+  border: 1px solid var(--gray);
+}
+
+table tbody td:first-child {
+  color: var(--black);
+}
+
+table tbody tr {
+  background-color: #f9fafb;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
