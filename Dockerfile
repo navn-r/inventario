@@ -13,11 +13,8 @@ ENV NODE_ENV production
 
 WORKDIR /usr/src/app
 
-COPY --from=builder /usr/src/app/package.json /usr/src/app/
-COPY --from=builder /usr/src/app/pnpm-lock.yaml /usr/src/app/
-COPY --from=builder /usr/src/app/node_modules /usr/src/app/node_modules
-COPY --from=builder /usr/src/app/dist /usr/src/app/dist
+COPY --from=builder /usr/src/app /usr/src/app/
 
 EXPOSE $PORT
 
-CMD [ "node", "dist/main.js" ]
+CMD [ "node", "dist/src/main.js" ]

@@ -169,8 +169,9 @@ header button.refresh {
   background-color: var(--blue);
 }
 
-header button.abort {
+button.abort {
   background-color: red;
+  color: var(--white);
 }
 
 header button:hover,
@@ -178,12 +179,12 @@ header .button:hover {
   background-color: var(--dark-green);
 }
 
-header button.abort:hover {
+button.abort:hover {
   background-color: var(--red);
 }
 
-header button.refresh:hover {
-  background-color: #07323A;
+button.refresh:hover {
+  background-color: #07323a;
 }
 
 /* Table Styles */
@@ -191,6 +192,7 @@ header button.refresh:hover {
 table {
   width: 100%;
   border-collapse: collapse;
+  border: 1px solid var(--gray);
 }
 
 table td {
@@ -219,4 +221,39 @@ table tbody tr {
 
 table tbody tr:nth-child(odd) {
   background-color: #ffffff;
+}
+
+.edit,
+.edit * {
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: var(--green);
+}
+
+.edit-item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0.25rem;
+}
+
+.edit-row button {
+  height: 100%;
+  padding: 0.5rem 0;
+}
+
+button.submit {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+
+button.submit:hover {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+.submit.full {
+  width: 100%;
 }

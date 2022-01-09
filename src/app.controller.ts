@@ -18,7 +18,10 @@ export class AppController {
   @Get()
   @Render('index')
   async getHello(): Promise<any> {
-    const url = 'http://localhost:3000';
+    const url =
+      process.env.NODE_ENV === 'production'
+        ? 'https://inventario-server.herokuapp.com'
+        : 'http://localhost:3000';
 
     const { data: items } = await firstValueFrom(
       this.service.get(url + '/inventory')
