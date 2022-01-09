@@ -1,12 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Render } from '@nestjs/common';
 import { ApiExcludeEndpoint } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
+  /**
+   * Entrypoint for React SSR (views/index.tsx)
+   */
   @ApiExcludeEndpoint()
   @Get()
-  getHello(): string {
-    // TODO: Connect with a frontend
-    return 'Hello World!';
+  @Render('index')
+  getHello(): { message: string } {
+    return { message: 'Hello World!' };
   }
 }

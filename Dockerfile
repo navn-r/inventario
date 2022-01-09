@@ -1,14 +1,11 @@
 FROM node:16.13.1-alpine as builder
 
-RUN npm install -g pnpm@6.24.4
-
 WORKDIR /usr/src/app
 
 COPY . /usr/src/app/
 
-RUN pnpm i \
-  && npm run build \
-  && pnpm prune --production
+RUN yarn install \
+  && yarn build 
 
 FROM node:16.13.1-alpine
 

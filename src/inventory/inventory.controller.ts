@@ -159,7 +159,7 @@ export class InventoryController {
 
       return updated;
     } catch (e) {
-      switch (e.name ?? e) {
+      switch (e?.name ?? e) {
         case 'CastError':
           throw new ItemNotFoundException(itemId);
         case 'ValidationError':

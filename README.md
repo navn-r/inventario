@@ -53,19 +53,16 @@ docker run -p 3000:3000 --env-file .env inventario
 
 ```bash
 # install dependencies
-pnpm i
+yarn
 
-# development
-npm run start
-
-# watch mode
-npm run start:dev
+# development (http://localhost:3000)
+yarn start
 
 # build
-npm run build
+yarn run build
 
 # serve build/prod code (/dist)
-npm run start:prod
+yarn run start:prod
 ```
 
 ## License
