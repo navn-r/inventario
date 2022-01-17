@@ -1,4 +1,4 @@
-@import url('https://navn.me/assets/index.f86ed1ef.css');
+@import url('https://navn.me/assets/index.7eda2aff.css');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap');
 
 * {
@@ -247,7 +247,6 @@ button.submit {
   background-color: var(--green);
   color: var(--white);
 }
-
 
 button.submit:hover {
   background-color: var(--dark-green);
